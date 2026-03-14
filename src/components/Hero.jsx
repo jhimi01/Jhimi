@@ -5,11 +5,8 @@ import {
   Coffee,
   FileText,
   Github,
-  Linkedin,
   LinkedinIcon,
   Menu,
-  MenuSquare,
-  MessageCircle,
 } from "lucide-react";
 
 const Hero = ({ runAnimation, onOpenMenu }) => {
@@ -207,44 +204,56 @@ const Hero = ({ runAnimation, onOpenMenu }) => {
           className="hero-cell"
           style={{ gap: "1.5rem", position: "relative" }}
         >
-          <div
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: "flex",
               alignItems: "center",
               gap: "1rem",
               cursor: "pointer",
               color: "var(--text-secondary)",
-              transition: "color 0.3s ease",
+              transition: "all 0.3s ease",
+              textDecoration: "none",
             }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.color = "var(--text-primary)")
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.color = "var(--text-secondary)")
-            }
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "var(--accent-color)";
+              e.currentTarget.querySelector("span").style.textDecoration = "underline";
+              e.currentTarget.querySelector("span").style.textUnderlineOffset = "4px";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "var(--text-secondary)";
+              e.currentTarget.querySelector("span").style.textDecoration = "none";
+            }}
           >
             <FileText size={24} />
-            <span style={{ fontWeight: 600 }}>If you want my resume **</span>
-          </div>
-          <div
+            <span style={{ fontWeight: 600, transition: "all 0.3s ease" }}>If you want my resume **</span>
+          </a>
+          <a
+            href="#contact"
             style={{
               display: "flex",
               alignItems: "center",
               gap: "1rem",
               cursor: "pointer",
               color: "var(--text-secondary)",
-              transition: "color 0.3s ease",
+              transition: "all 0.3s ease",
+              textDecoration: "none",
             }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.color = "var(--text-primary)")
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.color = "var(--text-secondary)")
-            }
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "var(--accent-color)";
+              e.currentTarget.querySelector("span").style.textDecoration = "underline";
+              e.currentTarget.querySelector("span").style.textUnderlineOffset = "4px";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "var(--text-secondary)";
+              e.currentTarget.querySelector("span").style.textDecoration = "none";
+            }}
           >
             <Coffee size={24} />
-            <span style={{ fontWeight: 600 }}>Or let’s share a tea</span>
-          </div>
+            <span style={{ fontWeight: 600, transition: "all 0.3s ease" }}>’s share a tea</span>
+          </a>
           <div
             style={{
               position: "absolute",

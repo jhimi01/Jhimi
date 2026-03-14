@@ -37,11 +37,11 @@ const CustomCursor = () => {
     // Contextual Hover Logic
     const handleHover = (e) => {
       setIsHovering(true);
-      gsap.to(dot, { scale: 0.5, backgroundColor: "#fff", duration: 0.3 });
+      gsap.to(dot, { scale: 0.5, duration: 0.3 });
       gsap.to(ring, {
-        scale: 2.2,
-        backgroundColor: "var(--accent-color)",
-        borderWidth: "0px",
+        scale: 1.5,
+        backgroundColor: "transparent",
+        borderWidth: "2px",
         duration: 0.4,
         ease: "back.out(1.7)",
       });
