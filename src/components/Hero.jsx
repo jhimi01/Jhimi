@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import {
@@ -11,10 +11,22 @@ import {
   MenuSquare,
   MessageCircle,
 } from "lucide-react";
-// import { frankie_penwill } from '../../public/frankie_penwill.png';
 
 const Hero = ({ runAnimation, onOpenMenu }) => {
   const container = useRef();
+  
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good Morning";
+    if (hour < 18) return "Good Afternoon";
+    return "Good Evening";
+  };
+
+  const [greeting, setGreeting] = useState(getGreeting());
+
+  useEffect(() => {
+    setGreeting(getGreeting());
+  }, []);
 
   useGSAP(
     () => {
@@ -83,7 +95,7 @@ const Hero = ({ runAnimation, onOpenMenu }) => {
               color: "var(--accent-color)",
               transition: "all 0.3s ease",
               position: "relative",
-              zIndex: 1000, // Ensure it's above other grid elements
+              zIndex: 1000, 
               cursor: "pointer",
             }}
             onMouseOver={(e) =>
@@ -105,7 +117,7 @@ const Hero = ({ runAnimation, onOpenMenu }) => {
         >
           <h2
             style={{
-              fontSize: "2.5rem",
+              fontSize: "2rem",
               fontWeight: 600,
               color: "var(--text-secondary)",
               marginBottom: "0.5rem",
@@ -113,7 +125,7 @@ const Hero = ({ runAnimation, onOpenMenu }) => {
             }}
           >
             <span style={{ display: "flex", alignItems: "center" }}>
-              Hlw, nice to meet you
+              {greeting}, nice to meet you
               <img
                 src="/emoji2.png"
                 alt="emoji"
