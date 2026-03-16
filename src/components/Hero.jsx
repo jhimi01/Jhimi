@@ -252,7 +252,7 @@ const Hero = ({ runAnimation, onOpenMenu }) => {
             }}
           >
             <Coffee size={24} />
-            <span style={{ fontWeight: 600, transition: "all 0.3s ease" }}>’s share a tea</span>
+            <span style={{ fontWeight: 600, transition: "all 0.3s ease" }}>Or let’s share a tea</span>
           </a>
           <div
             style={{
